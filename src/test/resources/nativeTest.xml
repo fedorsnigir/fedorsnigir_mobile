@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Native Suite" verbose="1">
+    <test name="Native Tests">
+        <groups>
+            <run>
+                <include name="native"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="homework2.nativetests"/>
+        </packages>
+    </test>
+</suite>
