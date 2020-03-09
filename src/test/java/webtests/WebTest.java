@@ -6,7 +6,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import static enums.PropertyOptionsEnum.WEB;
+import static enums.PropertiesEnum.WEB;
 
 @Test(groups = "web")
 public class WebTest extends DriverSetup {

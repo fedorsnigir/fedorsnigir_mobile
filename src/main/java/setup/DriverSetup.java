@@ -2,11 +2,9 @@ package setup;
 
 import enums.ErrorMessagesEnum;
 import enums.PropertiesEnum;
-import enums.PropertyOptionsEnum;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,7 +27,7 @@ public class DriverSetup extends TestProperties {
     // Properties
     protected String SUT; // site under testing
     private String AUT; // app under testing
-    private String TEST_PLATFORM;
+    private String PLATFORM;
     private String DRIVER;
     private String DEVICE_NAME;
     private String UDID;
@@ -38,8 +36,8 @@ public class DriverSetup extends TestProperties {
     private String BROWSER_NAME;
 
     //Initialize driver with appropriate capabilities depending on platform and application
-    protected void prepareDriver(PropertyOptionsEnum propertyOption) throws Exception {
-        PROPERTY_OPTION = propertyOption;
+    protected void prepareDriver(PropertiesEnum applicationType) throws Exception {
+        APPLICATION_TYPE = applicationType;
         DRIVER = getProperty(PropertiesEnum.DRIVER.value);
         DEVICE_NAME = getProperty(PropertiesEnum.DEVICE_NAME.value);
         UDID = getProperty(PropertiesEnum.UDID.value);
@@ -53,8 +51,8 @@ public class DriverSetup extends TestProperties {
         AUT = appName == null ? null : RESOURCES_PATH + appName;
 
         // Setup test platform: Android or iOS. Browser also depends on a platform
-        TEST_PLATFORM = getProperty(PropertiesEnum.TEST_PLATFORM.value);
-        switch (TEST_PLATFORM) {
+        PLATFORM = getProperty(PropertiesEnum.PLATFORM.value);
+        switch (PLATFORM) {
             case "Android":
                 BROWSER_NAME = CHROME.value;
                 break;
@@ -72,7 +70,7 @@ public class DriverSetup extends TestProperties {
             capabilities.setCapability(PropertiesEnum.APP.value, app.getAbsolutePath());
         } else if (SUT != null && AUT == null) {
             // Web
-            capabilities.setCapability(CapabilityType.BROWSER_NAME, BROWSER_NAME);
+            capabilities.setCapability(PropertiesEnum.BROWSER_NAME.value, BROWSER_NAME);
         } else {
             throw new Exception(UNKNOWN_APPLICATION.value);
         }
@@ -80,11 +78,11 @@ public class DriverSetup extends TestProperties {
         capabilities.setCapability(PropertiesEnum.APP_PACKAGE.value, APP_PACKAGE);
         capabilities.setCapability(PropertiesEnum.APP_ACTIVITY.value, APP_ACTIVITY);
         capabilities.setCapability(PropertiesEnum.UDID.value, UDID);
-        capabilities.setCapability(PropertiesEnum.PLATFORM_NAME.value, TEST_PLATFORM);
+        capabilities.setCapability(PropertiesEnum.PLATFORM_NAME.value, PLATFORM);
         capabilities.setCapability(PropertiesEnum.DEVICE_NAME.value, DEVICE_NAME); // default Android emulator
 
         // Init driver for local Appium server with capabilities
-        switch (TEST_PLATFORM) {
+        switch (PLATFORM) {
             case "Android":
                 driver = new AndroidDriver(new URL(DRIVER), capabilities);
                 break;
@@ -98,7 +96,7 @@ public class DriverSetup extends TestProperties {
 
     protected AppiumDriver getDriver() throws Exception {
         if (driver == null) {
-            prepareDriver(PROPERTY_OPTION);
+            prepareDriver(APPLICATION_TYPE);
         }
         return driver;
     }

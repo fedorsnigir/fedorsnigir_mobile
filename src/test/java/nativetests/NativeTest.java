@@ -9,7 +9,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import static enums.PropertyOptionsEnum.NATIVE;
+import static enums.PropertiesEnum.NATIVE;
 
 @Test(groups = "native")
 public class NativeTest extends DriverSetup {
