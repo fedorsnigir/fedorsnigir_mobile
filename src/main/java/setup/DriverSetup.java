@@ -1,8 +1,8 @@
-package homework2.setup;
+package setup;
 
-import homework2.enums.ErrorMessagesEnum;
-import homework2.enums.PropertiesEnum;
-import homework2.enums.PropertyOptionsEnum;
+import enums.ErrorMessagesEnum;
+import enums.PropertiesEnum;
+import enums.PropertyOptionsEnum;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -13,10 +13,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.net.URL;
 
-import static homework2.enums.BrowsersEnum.CHROME;
-import static homework2.enums.BrowsersEnum.SAFARI;
-import static homework2.enums.ErrorMessagesEnum.UNKNOWN_APPLICATION;
-import static homework2.enums.ErrorMessagesEnum.UNKNOWN_PLATFORM;
+import static enums.BrowsersEnum.CHROME;
+import static enums.BrowsersEnum.SAFARI;
+import static enums.ErrorMessagesEnum.UNKNOWN_APPLICATION;
+import static enums.ErrorMessagesEnum.UNKNOWN_PLATFORM;
 
 //Initialize a driver with test properties
 public class DriverSetup extends TestProperties {

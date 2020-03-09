@@ -1,4 +1,4 @@
-package homework2.enums;
+package enums;
 
 public enum BrowsersEnum {
 

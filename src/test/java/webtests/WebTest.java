@@ -1,12 +1,12 @@
-package homework2.webtests;
+package webtests;
 
-import homework2.pageObjects.web.YandexPage;
-import homework2.setup.DriverSetup;
+import pageObjects.web.YandexPage;
+import setup.DriverSetup;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import static homework2.enums.PropertyOptionsEnum.WEB;
+import static enums.PropertyOptionsEnum.WEB;
 
 @Test(groups = "web")
 public class WebTest extends DriverSetup {

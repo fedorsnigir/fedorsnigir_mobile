@@ -1,6 +1,6 @@
-package homework2.setup;
+package setup;
 
-import homework2.enums.PropertyOptionsEnum;
+import enums.PropertyOptionsEnum;
 
 import java.io.FileInputStream;
 import java.io.IOException;

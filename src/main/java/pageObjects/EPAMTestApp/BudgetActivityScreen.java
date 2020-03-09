@@ -1,4 +1,4 @@
-package homework2.pageObjects.EPAMTestApp;
+package pageObjects.EPAMTestApp;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;

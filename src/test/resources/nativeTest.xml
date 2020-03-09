@@ -9,7 +9,7 @@
         </groups>
 
         <packages>
-            <package name="homework2.nativetests"/>
+            <package name="nativetests"/>
         </packages>
     </test>
 </suite>

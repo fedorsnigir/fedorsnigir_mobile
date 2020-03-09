@@ -1,15 +1,15 @@
-package homework2.nativetests;
+package nativetests;
 
-import homework2.entities.User;
-import homework2.pageObjects.EPAMTestApp.BudgetActivityScreen;
-import homework2.pageObjects.EPAMTestApp.LoginScreen;
-import homework2.pageObjects.EPAMTestApp.RegisterScreen;
-import homework2.setup.DriverSetup;
+import entities.User;
+import pageObjects.EPAMTestApp.BudgetActivityScreen;
+import pageObjects.EPAMTestApp.LoginScreen;
+import pageObjects.EPAMTestApp.RegisterScreen;
+import setup.DriverSetup;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import static homework2.enums.PropertyOptionsEnum.NATIVE;
+import static enums.PropertyOptionsEnum.NATIVE;
 
 @Test(groups = "native")
 public class NativeTest extends DriverSetup {
