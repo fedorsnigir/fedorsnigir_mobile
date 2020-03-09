@@ -21,15 +21,15 @@ import static enums.ErrorMessagesEnum.UNKNOWN_PLATFORM;
 //Initialize a driver with test properties
 public class DriverSetup extends TestProperties {
 
-    private static AppiumDriver driver;
-    private static WebDriverWait wait;
+    private AppiumDriver driver;
+    private WebDriverWait wait;
     private DesiredCapabilities capabilities = new DesiredCapabilities();
     private String HTTPS = "https://";
     private String RESOURCES_PATH = "src/main/resources/";
     // Properties
     protected String SUT; // site under testing
     private String AUT; // app under testing
-    private String TEST_PLATFORM;
+    private String PLATFORM;
     private String DRIVER;
     private String DEVICE_NAME;
     private String UDID;
@@ -53,8 +53,8 @@ public class DriverSetup extends TestProperties {
         AUT = appName == null ? null : RESOURCES_PATH + appName;
 
         // Setup test platform: Android or iOS. Browser also depends on a platform
-        TEST_PLATFORM = getProperty(PropertiesEnum.TEST_PLATFORM.value);
-        switch (TEST_PLATFORM) {
+        PLATFORM = getProperty(PropertiesEnum.PLATFORM.value);
+        switch (PLATFORM) {
             case "Android":
                 BROWSER_NAME = CHROME.value;
                 break;
@@ -80,11 +80,11 @@ public class DriverSetup extends TestProperties {
         capabilities.setCapability(PropertiesEnum.APP_PACKAGE.value, APP_PACKAGE);
         capabilities.setCapability(PropertiesEnum.APP_ACTIVITY.value, APP_ACTIVITY);
         capabilities.setCapability(PropertiesEnum.UDID.value, UDID);
-        capabilities.setCapability(PropertiesEnum.PLATFORM_NAME.value, TEST_PLATFORM);
+        capabilities.setCapability(PropertiesEnum.PLATFORM_NAME.value, PLATFORM);
         capabilities.setCapability(PropertiesEnum.DEVICE_NAME.value, DEVICE_NAME); // default Android emulator
 
         // Init driver for local Appium server with capabilities
-        switch (TEST_PLATFORM) {
+        switch (PLATFORM) {
             case "Android":
                 driver = new AndroidDriver(new URL(DRIVER), capabilities);
                 break;

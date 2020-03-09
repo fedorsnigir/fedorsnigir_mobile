@@ -5,7 +5,7 @@ public enum PropertiesEnum {
     AUT("aut"),
     SUT("sut"),
     APP("app"),
-    TEST_PLATFORM("platform"),
+    PLATFORM("platform"),
     PLATFORM_NAME("platformName"),
     DRIVER("driver"),
     DEVICE_NAME("deviceName"),
