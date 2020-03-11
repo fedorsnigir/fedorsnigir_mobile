@@ -79,7 +79,7 @@ public class DriverSetup extends TestProperties {
         capabilities.setCapability(PropertiesEnum.APP_ACTIVITY.value, APP_ACTIVITY);
         capabilities.setCapability(PropertiesEnum.UDID.value, UDID);
         capabilities.setCapability(PropertiesEnum.PLATFORM_NAME.value, PLATFORM);
-        capabilities.setCapability(PropertiesEnum.DEVICE_NAME.value, DEVICE_NAME); // default Android emulator
+        capabilities.setCapability(PropertiesEnum.DEVICE_NAME.value, DEVICE_NAME);
 
         // Init driver for local Appium server with capabilities
         switch (PLATFORM) {

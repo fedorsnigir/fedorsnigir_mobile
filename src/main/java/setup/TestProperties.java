@@ -22,15 +22,4 @@ public class TestProperties {
         }
         return properties.getProperty(key);
     }
-
-//    private Properties getCurrentProps() throws IOException {
-//        FileInputStream input = new FileInputStream(PROPERTIES_FOLDER_PATH +);
-//        properties.load(input);
-//        input.close();
-//        return properties;
-//    }
-//
-//    protected String getProp(String propKey) throws IOException {
-//        if (!properties.containsKey(propKey)) properties = getCurrentProps();
-//        return properties.getProperty(propKey, null);
 }
