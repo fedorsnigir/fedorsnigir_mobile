@@ -1,34 +1,12 @@
 package webtests;
 
-import pageObjects.web.YandexPage;
-import setup.DriverSetup;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import hooks.Hooks;
 import org.testng.annotations.Test;
 
-import static enums.PropertiesEnum.WEB;
-
 @Test(groups = "web")
-public class WebTest extends DriverSetup {
+public class WebTest extends Hooks {
 
-    private YandexPage yandexPage;
-
-    @BeforeSuite(description = "Prepare driver")
-    public void setUp() throws Exception {
-        System.out.println("Driver preparation");
-        prepareDriver(WEB);
-        yandexPage = new YandexPage(getDriver());
-        System.out.println("Driver prepared");
-    }
-
-    @AfterSuite(description = "Close driver")
-    public void tearDown() throws Exception {
-        System.out.println("Driver closure");
-        getDriver().quit();
-        System.out.println("Driver closed");
-    }
-
-    @Test(description = "Google search with EPAM")
+    @Test(description = "Yandex search with EPAM")
     public void webTest() throws Exception {
 
         //Step 1: Open Google search page
